@@ -1,6 +1,6 @@
 package br.edu.uniavan.entities;
 
-public class Carro {
+public class Carro implements CarbonFootprint {
     private String modelo;
     private String combustivel;
 
@@ -23,5 +23,10 @@ public class Carro {
             this.modelo,
             this.combustivel
         );
+    }
+
+    @Override
+    public double getCarbonFootprint() {
+        return modelo.length() * 2;
     }
 }

@@ -1,6 +1,6 @@
 package br.edu.uniavan.entities;
 
-public class Bicicleta {
+public class Bicicleta implements CarbonFootprint {
     private String tipo;
 
     public Bicicleta(String tipo) {
@@ -13,5 +13,10 @@ public class Bicicleta {
 
     public String pedala(){
         return String.format("pedalando bicicleta %s", this.tipo);
+    }
+
+    @Override
+    public double getCarbonFootprint() {
+        return this.tipo.equals("elétrica") ? 1.5 : 0.5;
     }
 }

@@ -1,6 +1,6 @@
 package br.edu.uniavan.entities;
 
-public class Edificio {
+public class Edificio implements CarbonFootprint {
     private int area;
     private int numeroAndares;
 
@@ -15,5 +15,10 @@ public class Edificio {
 
     public int getAndares() {
         return this.numeroAndares;
+    }
+
+    @Override
+    public double getCarbonFootprint() {
+        return area * numeroAndares * 0.5;
     }
 }
